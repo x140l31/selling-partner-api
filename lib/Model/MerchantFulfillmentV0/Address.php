@@ -222,8 +222,8 @@ class Address extends BaseModel implements ModelInterface, ArrayAccess, \JsonSer
             $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 60.";
         }
 
-        if (!is_null($this->container['state_or_province_code']) && (mb_strlen($this->container['state_or_province_code']) > 30)) {
-            $invalidProperties[] = "invalid value for 'state_or_province_code', the character length must be smaller than or equal to 30.";
+        if (!is_null($this->container['state_or_province_code']) && (mb_strlen($this->container['state_or_province_code']) > 50)) {
+            $invalidProperties[] = "invalid value for 'state_or_province_code', the character length must be smaller than or equal to 50.";
         }
 
         if ($this->container['postal_code'] === null) {
@@ -447,8 +447,8 @@ class Address extends BaseModel implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setStateOrProvinceCode($state_or_province_code)
     {
-        if (!is_null($state_or_province_code) && (mb_strlen($state_or_province_code) > 30)) {
-            throw new \InvalidArgumentException('invalid length for $state_or_province_code when calling Address., must be smaller than or equal to 30.');
+        if (!is_null($state_or_province_code) && (mb_strlen($state_or_province_code) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $state_or_province_code when calling Address., must be smaller than or equal to 50.');
         }
 
         $this->container['state_or_province_code'] = $state_or_province_code;
